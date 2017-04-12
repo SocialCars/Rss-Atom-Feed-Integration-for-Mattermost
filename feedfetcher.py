@@ -132,6 +132,7 @@ def fetching_feed(feed):
         if d['entries']:
             feed.NewTitle = d['entries'][0]['title']
             feed.ArticleUrl = d['entries'][0]['link']
+            feed.Author = d['entries'][0]['author']
             if feed.ShowDescription == True:
                 feed.Description = d['entries'][0]['description']
             if settings.skip_init_article and len(feed.LastTitle) <= 0:

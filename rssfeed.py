@@ -26,6 +26,7 @@ class RssFeed:
         self.NewTitle = ''
         self.ArticleUrl = ''
         self.Description = ''
+	self.Author = ''
 
     def jointext(self):
         text = ''
@@ -36,6 +37,7 @@ class RssFeed:
             text += "_" + self.Name + '_\n'
         if self.ShowTitle == True:
             text += '### [' + self.NewTitle + '](' + self.ArticleUrl + ')\n'
+        text += '(by ' + self.Author + ')\n'
         if self.ShowDescription == True:
             text += self.Description + '\n'
         if self.ShowUrl == True:
