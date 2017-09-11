@@ -3,6 +3,7 @@
 __author__ = 'elpatron@mailbox.org'
 
 import sys
+import urllib
 try:
     import html2text
 except ImportError as exc:
@@ -36,8 +37,7 @@ class RssFeed:
         if self.ShowName == True:
             text += "_" + self.Name + '_\n'
         if self.ShowTitle == True:
-            text += '### [' + self.NewTitle + '](' + self.ArticleUrl + ')\n'
-        text += '(by ' + self.Author + ')\n'
+            text += '### [' + self.NewTitle + '](' + urllib.quote(self.ArticleUrl, safe=';/?:@&=+$,') + ')\n'
         if self.ShowDescription == True:
             text += self.Description + '\n'
         if self.ShowUrl == True:
@@ -55,3 +55,4 @@ class RssFeed:
         text += ';' + str(self.ShowUrl)
         text += '\''
         return text
+
